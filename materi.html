@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Pertidaksamaan Linear</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <h1>📘 Pertidaksamaan Linear</h1>
+  <p>Catatan belajarku sendiri</p>
+</header>
+
+<nav>
+  <a href="index.html">Beranda</a>
+  <a href="materi.html">Materi</a>
+</nav>
+
+<section class="container">
+
+<img class="foto" src="https://images.unsplash.com/photo-1529070538774-1843cb3265df" alt="Belajar matematika">
+
+<div class="card">
+<h2>Apa itu pertidaksamaan?</h2>
+<p>
+Di matematika, nggak semua soal jawabannya cuma satu angka.
+Kadang jawabannya bisa banyak nilai.
+Nah, soal seperti ini biasanya pakai tanda
+&lt;, &gt;, ≤, atau ≥.
+</p>
+<p>
+Itulah yang disebut <b>pertidaksamaan linear satu variabel</b>,
+karena cuma ada satu variabel, biasanya x.
+</p>
+</div>
+
+<img class="foto" src="https://images.unsplash.com/photo-1513258496099-48168024aec0" alt="Belajar di kelas">
+
+<div class="card">
+<h2>Aturan penting</h2>
+<ul>
+  <li>Ditambah atau dikurang → tanda tetap</li>
+  <li>Dikali atau dibagi positif → tanda tetap</li>
+  <li><b>Dikali atau dibagi negatif → tanda dibalik</b></li>
+</ul>
+
+<pre>
+-2x ≥ -8
+x ≤ 4
+</pre>
+</div>
+
+<img class="foto" src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b" alt="Latihan soal">
+
+<div class="card">
+<h2>Latihan Soal</h2>
+<ol>
+<li>x + 5 &gt; 9</li>
+<li>2x − 4 ≤ 8</li>
+<li>5x &gt; 15</li>
+<li>−3x ≥ −12</li>
+<li>x + 6 &lt; 10</li>
+<li>4x − 8 ≤ 0</li>
+<li>2(x + 2) &gt; 8</li>
+<li>10 − x ≥ 5</li>
+<li>3x + 2 &lt; 14</li>
+<li>5000x &lt; 40000</li>
+</ol>
+</div>
+
+<div class="card answer">
+<h2>Kunci Latihan</h2>
+<ol>
+<li>x &gt; 4</li>
+<li>x ≤ 6</li>
+<li>x &gt; 3</li>
+<li>x ≤ 4</li>
+<li>x &lt; 4</li>
+<li>x ≤ 2</li>
+<li>x &gt; 2</li>
+<li>x ≤ 5</li>
+<li>x &lt; 4</li>
+<li>x &lt; 8</li>
+</ol>
+</div>
+
+<!-- QUIZ -->
+<div class="card quiz-box">
+<h2>🧠 Quiz Pilihan Ganda</h2>
+
+<div class="timer">
+⏱️ Waktu: <span id="time">120</span> detik
+</div>
+
+<form id="quizForm">
+
+<div class="quiz-question">
+<p>1. x + 3 &gt; 7</p>
+<div class="options">
+<label><input type="radio" name="q1" value="0"> x &gt; 3</label>
+<label><input type="radio" name="q1" value="1"> x &gt; 4</label>
+<label><input type="radio" name="q1" value="0"> x &gt; 7</label>
+<label><input type="radio" name="q1" value="0"> x &lt; 4</label>
+</div>
+</div>
+
+<div class="quiz-question">
+<p>2. 2x − 6 ≤ 8</p>
+<div class="options">
+<label><input type="radio" name="q2" value="0"> x ≤ 5</label>
+<label><input type="radio" name="q2" value="1"> x ≤ 7</label>
+<label><input type="radio" name="q2" value="0"> x ≥ 7</label>
+<label><input type="radio" name="q2" value="0"> x ≥ 5</label>
+</div>
+</div>
+
+<div class="quiz-question">
+<p>3. 5x &gt; 20</p>
+<div class="options">
+<label><input type="radio" name="q3" value="0"> x &gt; 3</label>
+<label><input type="radio" name="q3" value="1"> x &gt; 4</label>
+<label><input type="radio" name="q3" value="0"> x &lt; 4</label>
+<label><input type="radio" name="q3" value="0"> x = 4</label>
+</div>
+</div>
+
+<button type="button" onclick="checkQuiz()" class="btn">
+Cek Jawaban
+</button>
+
+<p id="score"></p>
+
+</form>
+</div>
+
+</section>
+
+<footer>
+Catatan Matematika • Xavier
+</footer>
+
+<script>
+let timeLeft = 120;
+const timer = setInterval(() => {
+  document.getElementById("time").textContent = timeLeft;
+  timeLeft--;
+  if (timeLeft < 0) {
+    clearInterval(timer);
+    checkQuiz();
+  }
+}, 1000);
+
+function checkQuiz() {
+  clearInterval(timer);
+  let score = 0;
+  document.querySelectorAll('input[type="radio"]:checked').forEach(ans => {
+    if (ans.value === "1") {
+      score += 10;
+      ans.parentElement.classList.add("correct");
+    } else {
+      ans.parentElement.classList.add("wrong");
+    }
+  });
+  document.getElementById("score").innerHTML =
+    "🏆 Skor kamu: <b>" + score + "/100</b>";
+}
+</script>
+
+</body>
+</html>
